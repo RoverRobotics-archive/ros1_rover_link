@@ -1,0 +1,21 @@
+version: '2'
+services:
+  janus:
+    build: ..
+    ports:
+      - "8004:8004"
+      - "8088:8088"
+    volumes:
+      - "./conf:/conf"
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.2
+    entrypoint: [/bin/sh, -c, "/opt/janus/bin/janus -F /conf"]
+
+
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: "172.20.0.0/16"
+          ip_range: "172.28.5.0/24"
