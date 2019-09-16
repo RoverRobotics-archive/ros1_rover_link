@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../rover-link/.idea/rover-link.iml" filepath="$PROJECT_DIR$/../rover-link/.idea/rover-link.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rover_link/.idea/rover_link.iml" filepath="$PROJECT_DIR$/../rover_link/.idea/rover_link.iml" />
     </modules>
   </component>
 </project>
