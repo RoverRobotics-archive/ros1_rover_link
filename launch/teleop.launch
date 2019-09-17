@@ -55,6 +55,6 @@
     <node pkg="web_video_server" type="web_video_server" name="web_video_server" />
     <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
 
-    <node name="rover_server" pkg="janus_teleop" type="server.py" />
-    <node name="gstreamer" pkg="janus_teleop" type="gstreamer.sh" />
+    <node name="rover_server" pkg="rover_link" type="server.py" />
+    <node name="gstreamer" pkg="rover_link" type="gstreamer.sh" />
 </launch>
