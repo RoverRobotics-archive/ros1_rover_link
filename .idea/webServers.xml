@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8266ab56-1dc2-40af-a44d-a0a643a3923c" name="Euler" url="http://10.0.8.5">
+        <fileTransfer host="10.0.8.5" port="22" rootFolder="/home/ubuntu/twgc_ros1_ws/src/rover-link" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
