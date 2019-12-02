@@ -1,11 +1,15 @@
 #!/usr/bin/env python
-
-from flask import Flask, send_file, request, send_from_directory, jsonify
 import os
 import signal
 import sys
+from flask import Flask, send_file, request, send_from_directory, jsonify
+
+from wifi_config import WifiManager
+
 
 app = Flask(__name__)
+wifi_mgr = WifiManager()
+
 
 
 @app.route("/")
@@ -30,6 +34,23 @@ def css(file):
 def js(file):
     return send_file(os.path.join("js", file))
 
+@app.route('/wifi-search')
+def get_wifi_connections():
+    wifi = wifi_mgr.search()
+    return jsonify(wifi)
+
+@app.route('/wifi-rescan', methods=['GET'])
+def rescan_for_networks():
+    try:
+        wifi_mgr.rescan()
+    except RuntimeError as e:
+        return jsonify(str(e))
+    wifi = wifi_mgr.search()
+    return jsonify(wifi)
+
+
+
+
 
 
 
@@ -39,4 +60,4 @@ def signal_handler(signal, frame):
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=80, debug=False)
