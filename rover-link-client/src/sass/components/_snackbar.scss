@@ -1,0 +1,29 @@
+.snackbar {
+  padding: 2rem 6rem;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 2rem;
+  top: 90%;
+  color: var(--color-white);
+  animation: fadein 1s;
+  background-color: rgba(0,0,0,.8);
+
+  &--danger {
+    background-color: rgba(242, 12, 12, 0.8);
+  }
+
+  &--warning {
+    background-color: rgba(242, 238, 12, 0.8);
+    color: var(--color-black);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

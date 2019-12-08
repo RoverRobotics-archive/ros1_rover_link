@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit; // inherits from html
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // 1rem = 10px
+}
+a {
+  text-decoration: none;
+}
+body {
+  background-color: var(--color-white);
+  font-family: 'BentonSans', sans-serif;
+}
+
+.rover-control {
+  overscroll-behavior: none;
+  height: 100%;
+  @media all and (max-width: $mobile-portrait-control-width) {
+    position: fixed;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 90vw;
+  width: 90%;
+  background-color: inherit;
+}

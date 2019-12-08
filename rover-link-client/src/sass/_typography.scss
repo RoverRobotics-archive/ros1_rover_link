@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'BentonSans';
+  src: url('./assets/fonts/BentonSans-Thin.eot');
+  src: url('./assets/fonts/BentonSans-Thin.eot?#iefix') format('embedded-opentype'),
+       url('./assets/fonts/BentonSans-Thin.woff2') format('woff2'),
+       url('./assets/fonts/BentonSans-Thin.woff') format('woff'),
+       url('./assets/fonts/BentonSans-Thin.ttf') format('truetype'),
+       url('./assets/fonts/BentonSans-Thin.svg#BentonSans-Thin') format('svg');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BentonSans';
+  src: url('./assets/fonts/BentonSans-Book.eot');
+  src: url('./assets/fonts/BentonSans-Book.eot?#iefix') format('embedded-opentype'),
+       url('./assets/fonts/BentonSans-Book.woff2') format('woff2'),
+       url('./assets/fonts/BentonSans-Book.woff') format('woff'),
+       url('./assets/fonts/BentonSans-Book.ttf') format('truetype'),
+       url('./assets/fonts/BentonSans-Book.svg#BentonSans-Book') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BentonSans';
+  src: url('./assets/fonts/BentonSans.eot');
+  src: url('./assets/fonts/BentonSans.eot?#iefix') format('embedded-opentype'),
+       url('./assets/fonts/BentonSans.woff2') format('woff2'),
+       url('./assets/fonts/BentonSans.woff') format('woff'),
+       url('./assets/fonts/BentonSans.ttf') format('truetype'),
+       url('./assets/fonts/BentonSans.svg#BentonSans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BentonSans';
+  src: url('./assets/fonts/BentonSans-Medium.eot');
+  src: url('./assets/fonts/BentonSans-Medium.eot?#iefix') format('embedded-opentype'),
+       url('./assets/fonts/BentonSans-Medium.woff2') format('woff2'),
+       url('./assets/fonts/BentonSans-Medium.woff') format('woff'),
+       url('./assets/fonts/BentonSans-Medium.ttf') format('truetype'),
+       url('./assets/fonts/BentonSans-Medium.svg#BentonSans-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans';
+    src: url('./assets/fonts/BentonSans-Bold.eot');
+    src: url('./assets/fonts/BentonSans-Bold.eot?#iefix') format('embedded-opentype'),
+         url('./assets/fonts/BentonSans-Bold.woff2') format('woff2'),
+         url('./assets/fonts/BentonSans-Bold.woff') format('woff'),
+         url('./assets/fonts/BentonSans-Bold.ttf') format('truetype'),
+         url('./assets/fonts/BentonSans-Bold.svg#BentonSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans Condensed';
+    src: url('./assets/fonts/BentonSans-CondensedBook.eot');
+    src: url('./assets/fonts/BentonSans-CondensedBook.eot?#iefix') format('embedded-opentype'),
+         url('./assets/fonts/BentonSans-CondensedBook.woff2') format('woff2'),
+         url('./assets/fonts/BentonSans-CondensedBook.woff') format('woff'),
+         url('./assets/fonts/BentonSans-CondensedBook.ttf') format('truetype'),
+         url('./assets/fonts/BentonSans-CondensedBook.svg#BentonSans-CondensedBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans Condensed';
+    src: url('./assets/fonts/BentonSans-CondensedBold.eot');
+    src: url('./assets/fonts/BentonSans-CondensedBold.eot?#iefix') format('embedded-opentype'),
+         url('./assets/fonts/BentonSans-CondensedBold.woff2') format('woff2'),
+         url('./assets/fonts/BentonSans-CondensedBold.woff') format('woff'),
+         url('./assets/fonts/BentonSans-CondensedBold.ttf') format('truetype'),
+         url('./assets/fonts/BentonSans-CondensedBold.svg#BentonSans-CondensedBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSans Condensed';
+    src: url('./assets/fonts/BentonSans-CondensedBlack.eot');
+    src: url('./assets/fonts/BentonSans-CondensedBlack.eot?#iefix') format('embedded-opentype'),
+         url('./assets/fonts/BentonSans-CondensedBlack.woff2') format('woff2'),
+         url('./assets/fonts/BentonSans-CondensedBlack.woff') format('woff'),
+         url('./assets/fonts/BentonSans-CondensedBlack.ttf') format('truetype'),
+         url('./assets/fonts/BentonSans-CondensedBlack.svg#BentonSans-CondensedBlack') format('svg');
+    font-weight: 900;
+    font-style: normal;
+}

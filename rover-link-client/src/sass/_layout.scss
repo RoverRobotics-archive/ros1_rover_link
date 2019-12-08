@@ -1,0 +1,9 @@
+.control-panel {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+   @media only screen and (max-width: 875px) {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,58 @@
+.control-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: 875px) {
+    flex-direction: column;
+  }
+
+  & svg {
+    margin: 2rem;
+    color: var(--color-white);
+  }
+
+&--bg {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--color-primary);
+    min-width: 25rem;
+    color: var(--color-white);
+
+
+}
+
+
+  &__input {
+    border: none;
+    background-color: var(--color-light-grey-2);
+    outline: none;
+    padding: 1rem;
+    max-width: 30rem;
+    height: 3rem;
+
+    color: var(--color-black);
+
+    &::placeholder {
+      color: var(--color-black);
+    }
+  }
+  &__label {
+    align-self: center;
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  & .btn--setting {
+    @media only screen and (max-width: 875px) {
+      margin-top: 2rem;
+      padding: 0.5rem 0;
+      width: 50%;
+      align-self: center;
+    }
+
+  }
+
+
+}
