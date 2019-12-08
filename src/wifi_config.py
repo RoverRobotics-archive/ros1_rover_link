@@ -1,6 +1,7 @@
 import os
 import wifi
 import time
+import re
 
 from wifi import Cell, Scheme
 
@@ -19,7 +20,7 @@ class WifiManager:
         ssids = ssids.split("\n")
         formatted_ssids = []
         for ssid in ssids[1:]:
-            format_ssid = ssid.split()
+            format_ssid = re.split(r'\s{2,}', ssid)
             formatted_ssids.append(format_ssid)
         return formatted_ssids
 
@@ -33,8 +34,8 @@ class WifiManager:
     def rescan(self):
         # nmcli dev wifi rescan
         start = time.time()
-        if WifiManager.last_scan and (self._get_last_scan_time() - start) < WifiManager._scan_wait_interval:
-            raise RuntimeError('Scanning not allowed immediately following previous scan.')
+        if WifiManager.last_scan and (start - self._get_last_scan_time()) < WifiManager._scan_wait_interval:
+            raise RuntimeError('Scanning not allowed immediately please wait 30 seconds.')
 
         current_len = len(self.search()) # get current length of search results
         os.popen("nmcli dev wifi rescan") # init scan
@@ -57,45 +58,12 @@ class WifiManager:
         return cls.last_scan
 
     def connect(self, ssid, password=None):
-        cell = self.findFromSearchList(ssid)
+        connection = os.popen("nmcli device wifi connect '{}' password {}".format(ssid, password)).read()
+        if "Error" in connection:
+            raise ValueError('Error Connecting to network: {}'.format(connection))
 
-        if cell:
-            savedcell = self.findFromSavedList(cell.ssid)
 
-            # Already Saved from Setting
-            if savedcell:
-                savedcell.activate()
-                return cell
 
-            # First time to conenct
-            else:
-                if cell.encrypted:
-                    if password:
-                        scheme = self.add(cell, password)
-
-                        try:
-                            scheme.activate()
-
-                        # Wrong Password
-                        except wifi.exceptions.ConnectionError:
-                            self.delete(ssid)
-                            return False
-
-                        return cell
-                    else:
-                        return False
-                else:
-                    scheme = self.add(cell)
-
-                    try:
-                        scheme.activate()
-                    except wifi.exceptions.ConnectionError:
-                        self.delete(ssid)
-                        return False
-
-                    return cell
-
-        return False
 
 
     def add(self, cell, password=None):
@@ -106,18 +74,6 @@ class WifiManager:
         scheme.save()
         return scheme
 
-
-    def delete(self, ssid):
-        if not ssid:
-            return False
-
-        cell = self.findFromSavedList(ssid)
-
-        if cell:
-            cell.delete()
-            return True
-
-        return False
 
 
 
