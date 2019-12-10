@@ -1,10 +1,6 @@
 import os
-import wifi
 import time
 import re
-
-from wifi import Cell, Scheme
-
 
 class WifiManager:
     _scan_timeout = 10
