@@ -1,0 +1,8 @@
+.rover-control {
+  @media all and (max-width: $mobile-portrait-control-width) and (orientation: portrait) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 100vh;
+  }
+}

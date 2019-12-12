@@ -1,8 +1,18 @@
 .header {
   padding: 1rem 0;
+
     @media all and (max-width: $mobile-portrait-control-width) and (orientation: portrait) {
-      position: absolute;
+      background-color: var(--color-black);
+      .header-widgets {
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-evenly;
+        &__widget {
+          padding: 1rem;
+        }
+      }
       width: 100%;
+      height: 100%;
     }
 
     @media all and (max-width: $mobile-portrait-control-width) and (orientation: landscape) {
@@ -14,37 +24,16 @@
     background-color: var(--color-primary);
   }
 
+  &--black {
+    background-color: var(--color-black);
+  }
+
   }
 
 .header-widgets {
   display: flex;
   justify-content:space-between;
   align-items: center;
-
-  @media screen and (max-width: 875px) {
-    font-size: 2rem;
-
-    .header-widgets__widget--settings {
-      visibility: hidden;
-    }
-
-    &__widget {
-      &:not(:last-child):not(:first-child) {
-        align-items: center;
-        display: none;
-      }
-
-      margin:1rem 0;
-      &:first-child {
-        margin-left: 1.5rem !important;
-    }
-     &:last-child {
-        margin-right: 0 !important;
-      }
-    }
-  }
-
-
   &__widget {
     list-style: none;
     display: flex;

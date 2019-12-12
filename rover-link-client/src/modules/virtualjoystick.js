@@ -1,5 +1,6 @@
 var VirtualJoystick	= function(opts)
 {
+
 	opts			= opts			|| {};
 	this._container		= opts.container	|| document.body;
 	this._strokeStyle	= opts.strokeStyle	|| 'cyan';

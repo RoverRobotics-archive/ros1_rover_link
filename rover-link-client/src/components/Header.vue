@@ -1,5 +1,5 @@
 <template>
-    <header class="header" v-bind:class="{'header--blue': !this.$store.getters.janusConnected}">
+    <header class="header">
         <ul class="header-widgets">
             <li class="header-widgets__widget header-widgets__widget--settings">
                 <router-link to="/">

@@ -108,8 +108,8 @@ const actions = {
            commit("setLastReceivedTime", Date.now())
         });
     },
-    publish({commit, state}) {
-        const RC = new RoverControl(state.ROS, state.linearSpeed, state.angularSpeed);
+    publish({commit, dispatch, state}) {
+        const RC = new RoverControl(state.ROS, state.linearSpeed, state.angularSpeed, dispatch);
         commit("control", RC)
     },
 

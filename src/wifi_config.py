@@ -2,6 +2,8 @@ import os
 import time
 import re
 
+
+
 class WifiManager:
     _scan_timeout = 10
     _scan_wait_interval = 30 # time until next scan is avaiable
@@ -60,15 +62,6 @@ class WifiManager:
 
 
 
-
-
-    def add(self, cell, password=None):
-        if not cell:
-            return False
-
-        scheme = wifi.Scheme.for_cell('wlan0', cell.ssid, cell, password)
-        scheme.save()
-        return scheme
 
 
 

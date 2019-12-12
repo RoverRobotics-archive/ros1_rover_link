@@ -21,7 +21,7 @@ class RoverControl {
             // permanent throttle
         this.throttle = 6.0;
         this.currentMobileButton = null;
-        this.joystick = new VirtualJoystick();
+        this.joystick = new VirtualJoystick({container: document.getElementById('joystick-area')});
 
         // used to externally throttle the speed
         this.linearScale = (linearSpeed / 100);
@@ -59,25 +59,21 @@ class RoverControl {
           angularSpeed = this.throttle * this.angularScale;
 
           if (left) {
-              console.log("left")
               // turn left
               this.z = 1 * angularSpeed;
           }
 
           if (right) {
-              console.log("right")
             // turn right
             this.z = -1 * angularSpeed;
           }
 
         if (down) {
-            console.log("backward")
           // down
           this.x = -0.25 * linearSpeed;
         }
 
         if (up) {
-            console.log("forward")
             // up
            this.x = 0.25 * linearSpeed;
         }
@@ -192,7 +188,9 @@ class RoverControl {
 
 
     mobileControl() {
-
+         const body = document.getElementsByTagName("BODY")[0];
+        console.log(body)
+        body.style.cssText = "overscroll-behavior: none;"
         document.addEventListener("touchend", (e) => {
            this.stopRobot();
         });

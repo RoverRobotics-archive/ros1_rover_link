@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="rover-control">
           <Header />
           <Dashboard />
     </div>
@@ -12,7 +12,7 @@ import Header from '@/components/Header'
 import Dashboard from "@/components/Dashboard"
 
 export default {
-  name: 'home',
+  name: 'RoverControl',
   components: {
       Header,
       Dashboard

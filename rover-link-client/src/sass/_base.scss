@@ -20,13 +20,6 @@ body {
   font-family: 'BentonSans', sans-serif;
 }
 
-.rover-control {
-  overscroll-behavior: none;
-  height: 100%;
-  @media all and (max-width: $mobile-portrait-control-width) {
-    position: fixed;
-  }
-}
 
 .container {
   margin: 0 auto;
