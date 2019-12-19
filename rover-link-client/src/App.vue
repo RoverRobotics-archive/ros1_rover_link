@@ -10,7 +10,8 @@
 </style>
 <script>
   import Snackbar from "./components/Snackbar";
-  import { mapActions } from "vuex";
+
+
   export default {
     components: {Snackbar},
   }

@@ -17,7 +17,7 @@
           this.$store.dispatch('initROS');
        },
        destroyed() {
-             window.location.reload(); // simple hack to destroy all rover state
+             this.$store.dispatch('reset'); // simple hack to destroy all rover state
        }
     }
 

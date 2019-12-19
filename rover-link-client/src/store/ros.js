@@ -113,6 +113,10 @@ const actions = {
         commit("control", RC)
     },
 
+    reset({commit}) {
+            commit('reset')
+    },
+
     updateLinearSpeed({commit, state}, speed) {
         commit("linearSpeed", parseInt(speed));
         state.control.setLinearScale = state.linearSpeed
@@ -140,7 +144,20 @@ const mutations = {
     linearSpeed: (state, speed) => (state.linearSpeed = speed),
     angularSpeed: (state, speed) => (state.angularSpeed = speed),
     slowRateData: (state, data) => (state.slowRateData = data),
-    setLastReceivedTime: (state,currentTime) => (state.lastReceivedTime = currentTime)
+    setLastReceivedTime: (state,currentTime) => (state.lastReceivedTime = currentTime),
+    reset: function(state) {
+            state.rosURL = JSON.parse(window.localStorage.getItem('rosURL')) || `ws://${window.location.hostname}:9090`,
+            state.batterySOC = null,
+            state.batteryPercent = null,
+            state.ROS = null,
+            state.control = null,
+            state.lastReceivedTime = null,
+            state.linearSpeed = 25,
+            state.angularSpeed = 25,
+            state.slowRateData = {
+                reg_robot_rel_soc_a: 0 // for init state to avoid errors
+            }
+    }
 }
 
 
