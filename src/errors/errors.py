@@ -1,0 +1,2 @@
+class UserAlreadyInQueueError(Exception):
+   pass

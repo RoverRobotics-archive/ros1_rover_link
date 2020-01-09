@@ -1,30 +1,35 @@
-from flask import  Blueprint, session, request, jsonify
-from modules.user_mgr import UserManager
+from flask import  Blueprint, session, request, jsonify, render_template, redirect
 
+from modules.user_mgr import UserMgr
 
-usr_mgr = UserManager()
 users = Blueprint('users', __name__)
 
 
-@users.route('/set-active-user', methods=["POST"])
+@users.route('/login', methods=["POST", "GET"])
 def start_session():
-    user_alias = request.args.get('alias')
-    if not user_alias:
-        return "please provide an alias", 400
-    for key in session.keys():
-        print(key)
-    session['active_session'] = True
+    active_users = UserMgr.get_active_users()
+    if request.method == "GET":
+        print(active_users)
+        return render_template('login.html', active_users=active_users)
+    if request.method == "POST":
+        user_alias = request.form.get('alias')
+        if not user_alias:
+            return render_template('login.html', error="Please enter a username", active_users=active_users)
+        try:
+            UserMgr.add(user_alias)
+        except:
+            return render_template('login.html', error="A user with that name is already in queue", active_users=active_users)
 
-    return "added successfully"
+        session['active_session'] = user_alias
+
+        return redirect('/')
 
 
-@users.route('/is-active-user', methods=["GET"])
-def check_is_active():
-    return jsonify({
-        'active_session': session.get('active_session')
-    })
-@users.route('/remove-user', methods=["POST"])
-def remove_session():
-    user_alias = request.args.get('alias')
+@users.route('/logout', methods=["GET"])
+def logout():
+    UserMgr.remove(session['active_session'])
+    session['active_session'] = None
+    return "You Have Been Logged Out"
+
 
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login To Roverlink</title>
+    <meta name="description" content="Login To Roverlink">
+    <meta name="keywords" content="keywords,here">
+    <link href=/get-app-css rel=stylesheet>
+  </head>
+  <body>
+  <div class="form-wrapper">
+    <h1>Login to Roverlink</h1>
+      <br>
+    {% if active_users %}
+      <p>currently: <strong>{{active_users | join(',')}}</strong> is using Roverlink</p>
+    {% endif %}
+    <form method="post" action="/login">
+        <input name="alias" placeholder="Set username" />
+        <button type="submit">Login</button>
+        {% if error %}
+          <p class="error">{{error}}</p>
+        {% endif %}
+    </form>
+  </div>
+  <style>
+    .form-wrapper {
+      text-align: center;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        position: absolute;
+        max-width: 500px;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        top: 25%;
+    }
+
+    input[name="alias"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type=submit] {
+      width: 100%;
+      background-color: #0074E4;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+    .error {
+      color: red;
+    }
+  </style>
+  </body>
+</html>

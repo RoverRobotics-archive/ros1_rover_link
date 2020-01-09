@@ -1,21 +1,25 @@
-from modules.user import User
+from errors.errors import UserAlreadyInQueueError
 
 
-class UserManager:
-    MAX_USERS = 2
+class UserMgr:
+    MAX_USERS = 1
     USERS = []
 
     @classmethod
-    def add_user(cls, user):
-        if len(cls.USERS) < cls.MAX_USERS:
-            cls.USERS.append(user)
-        else:
-            raise RuntimeError(f'Max user limit reached: {cls.MAX_USERS} / {len(cls.USERS)}')
+    def remove(cls, user):
+        try:
+            index = cls.USERS.index(user)
+            cls.USERS.pop(index)
+        except ValueError as e:
+            print(e)
 
     @classmethod
-    def remove_user(cls, user):
-        cls.USERS.remove(user)
+    def get_active_users(cls):
+        return cls.USERS[:cls.MAX_USERS]
 
-    @staticmethod
-    def create_user(alias):
-        return User(alias)
+    @classmethod
+    def add(cls, user):
+        if user in cls.USERS:
+            raise UserAlreadyInQueueError('user already queued')
+        else:
+            cls.USERS.append(user)
